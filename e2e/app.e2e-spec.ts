@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import { browser } from 'protractor';
 
 describe('ng-workshop-testing App', () => {
   let page: AppPage;
@@ -11,4 +12,12 @@ describe('ng-workshop-testing App', () => {
     page.navigateTo();
     expect(page.getNameOfFirst()).toEqual('Leanne Graham');
   });
+
+  it('should filter', () => {
+    page.navigateTo();
+    page.setUsernameToFilter('Antonette');
+    page.clickFilter();
+    expect(page.getNameOfFirst()).toEqual('Ervin Howell');
+  });
+
 });

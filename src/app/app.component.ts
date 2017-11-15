@@ -18,7 +18,6 @@ export class AppComponent {
   getUsers() {
     this.httpClient.get<any[]>('http://localhost:3001/api/public/users').subscribe(
       users => {
-        console.log(users);
         this.originalUsers = users;
         this.users = users;
       }

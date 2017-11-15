@@ -5,7 +5,7 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getNameOfFirst() {
+    return element(by.css('#user-0 #name')).getText();
   }
 }

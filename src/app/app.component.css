@@ -1,0 +1,7 @@
+.user {
+    border: solid 2px orange;
+}
+
+.user #name {
+    background-color: pink;
+}

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, async } from '@angular/core/testing';
 
 import { UsersProxyService } from './users-proxy.service';
 
@@ -15,7 +15,7 @@ describe('UsersProxyService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should get users from server', () => {
+  it('should get users from server', async(() => {
     const service: UsersProxyService = TestBed.get(UsersProxyService);
     service.getUsersFromServer().subscribe(
       response => {
@@ -23,6 +23,6 @@ describe('UsersProxyService', () => {
         expect(response.body).not.toBeNull();
       }
     );
-  });
+  }));
 
 });

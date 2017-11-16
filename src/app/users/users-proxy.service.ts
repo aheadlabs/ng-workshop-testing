@@ -1,4 +1,4 @@
-import { HttpResponse } from '@angular/common/http/src/response';
+import { HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';

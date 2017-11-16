@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UsersProxyService } from '../users-proxy.service';
+import { UsersProxyServiceFake } from '../users-proxy.service.fake';
+import { UsersService } from '../users.service';
 import { UsersComponent } from './users.component';
 
 describe('UsersComponent', () => {
@@ -8,7 +11,11 @@ describe('UsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsersComponent ]
+      declarations: [ UsersComponent ],
+      providers: [
+        {provide: UsersProxyService, useClass: UsersProxyServiceFake},
+        {provide: UsersService, useClass: UsersService, deps: [UsersProxyService]}
+      ]
     })
     .compileComponents();
   }));
@@ -22,4 +29,15 @@ describe('UsersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set users', () => {
+    component.ngOnInit();
+    expect(component.users$).not.toBeNull();
+    component.users$.subscribe(
+      users => {
+        expect(users[0].username).toBe('Bret');
+      }
+    );
+  });
+
 });

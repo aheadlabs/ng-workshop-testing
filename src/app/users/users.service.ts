@@ -5,7 +5,6 @@ import { UsersProxyService } from './users-proxy.service';
 import { Injectable } from '@angular/core';
 import { User } from './user';
 
-@Injectable()
 export class UsersService {
 
   constructor(private proxy: UsersProxyService) { }

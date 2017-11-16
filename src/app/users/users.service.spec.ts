@@ -10,7 +10,7 @@ describe('UsersService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       providers: [
-        UsersService,
+        {provide: UsersService, useClass: UsersService, deps: [UsersProxyService]},
         {provide: UsersProxyService, useClass: UsersProxyServiceFake}
       ]
     });

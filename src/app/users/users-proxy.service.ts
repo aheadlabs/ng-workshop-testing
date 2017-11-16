@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-@Injectable()
 export class UsersProxyService {
 
   constructor(private httpClient: HttpClient) { }

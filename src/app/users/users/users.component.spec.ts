@@ -38,6 +38,22 @@ describe('UsersComponent', () => {
         expect(users[0].username).toBe('Bret');
       }
     );
+    component.ngOnDestroy();
+  });
+
+  it('should filter users by username', () => {
+    component.ngOnInit();
+    component.filter('Bret');
+    component.users$.subscribe(
+      users => {
+        expect(users.length).toBe(1);
+      }
+    );
+    component.filter('no-exits');
+    component.users$.subscribe(
+      users => expect(users.length).toBe(10)
+    );
+    component.ngOnDestroy();
   });
 
 });

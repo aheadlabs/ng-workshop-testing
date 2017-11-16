@@ -24,7 +24,6 @@ describe('UsersService', () => {
     const service: UsersService = TestBed.get(UsersService);
     service.getUsers().subscribe(
       users => {
-        console.log(users[0].id);
         expect(users[0].id).toBe(1);
         expect(users[1].username).toEqual('Antonette');
       }

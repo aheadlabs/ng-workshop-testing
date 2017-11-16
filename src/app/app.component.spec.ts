@@ -48,6 +48,9 @@ describe('AppComponent', () => {
         app.filter('Bret');
         expect(app.users.length).toBe(1);
 
+        app.filter('no-exits');
+        expect(app.users.length).toBe(10);
+
     }));
 
 });

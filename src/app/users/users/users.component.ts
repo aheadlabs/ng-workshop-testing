@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   filter(username: string) {
     this.subUsers = this.service.filterByUsername(username, this.users$)
     .subscribe(users => {
-      if (users.length === 0) {
+      if (users.length === 0 && username === '') {
         this.users$ = this.originalUsers$;
       }else {
         this.users$ = of(users);

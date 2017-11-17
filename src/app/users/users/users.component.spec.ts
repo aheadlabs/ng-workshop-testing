@@ -49,9 +49,13 @@ describe('UsersComponent', () => {
         expect(users.length).toBe(1);
       }
     );
-    component.filter('no-exits');
+    component.filter('');
     component.users$.subscribe(
       users => expect(users.length).toBe(10)
+    );
+    component.filter('no-exists');
+    component.users$.subscribe(
+      users => expect(users.length).toBe(0)
     );
     component.ngOnDestroy();
   });

@@ -34,7 +34,7 @@ export class AppComponent {
       }
     });
     if (this.users.length === 0 || !matched) {
-      this.getUsers();
+      this.users = this.originalUsers;
     }
   }
 
